@@ -27,7 +27,7 @@ process.on("uncaughtException", (err) => {
 });
 
 const app = express();
-
+app.enable("trust proxy");
 // Swagger route
 // app.use(
 //   "/api-docs",
