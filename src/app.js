@@ -4,7 +4,6 @@ const swaggerUi = require("swagger-ui-express");
 const cookieParser = require("cookie-parser");
 
 const mongoSanitize = require("express-mongo-sanitize");
-const rateLimit = require("express-rate-limit");
 
 const xss = require("xss-clean");
 const helmet = require("helmet");
@@ -27,7 +26,7 @@ process.on("uncaughtException", (err) => {
 });
 
 const app = express();
-app.enable("trust proxy");
+
 // Swagger route
 // app.use(
 //   "/api-docs",
@@ -50,14 +49,6 @@ app.use(express.static(join(__dirname, "public")));
 
 // Set security HTTP headers
 app.use(helmet());
-
-// Rate limiting requests from same API
-const limiter = rateLimit({
-  max: 100,
-  windowMs: 60 * 60 * 1000,
-  message: ErrorMessage.TO_MANY_REQUEST,
-});
-app.use(limiter);
 
 // Body parser, reading data from body into req.body
 app.use(express.json({ limit: "10kb" }));
