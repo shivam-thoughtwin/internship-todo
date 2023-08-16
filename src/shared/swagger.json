@@ -30,15 +30,7 @@
   "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
-    "/health": {
-      "get": {
-        "tags": ["Health"],
-        "summary": "Get server state details",
-        "description": "",
-        "produces": ["application/json"],
-        "responses": { "200": { "description": "Success" } }
-      }
-    },
+   
     "/auth/signup": {
       "post": {
         "tags": ["Auth"],
