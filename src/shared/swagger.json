@@ -190,42 +190,43 @@
         "security": [{ "bearerAuth": [] }],
         "produces": ["application/json"],
         "responses": { "200": { "description": "Success" } }
-      },
-      "/todo/create": {
-        "post": {
-          "tags": ["Auth"],
-          "summary": "Create new Todo",
-          "description": "",
-          "parameters": [
-            {
-              "name": "Todo",
-              "description": "todo Details",
-              "in": "body",
-              "required": true,
-              "schema": { "$ref": "#/definitions/Create" }
-            }
-          ],
-          "produces": ["application/json"],
-          "responses": { "200": { "description": "Success" } }
-        }
-      },
-      "/todo/changestatus": {
-        "post": {
-          "tags": ["Todo"],
-          "summary": "Change Todo Status",
-          "description": "",
-          "parameters": [
-            {
-              "name": "Todo",
-              "description": "todo Details",
-              "in": "body",
-              "required": true,
-              "schema": { "$ref": "#/definitions/Changestatus" }
-            }
-          ],
-          "produces": ["application/json"],
-          "responses": { "200": { "description": "Success" } }
-        }
+      }
+     
+    },
+    "/todo/create": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Create new Todo",
+        "description": "",
+        "parameters": [
+          {
+            "name": "Todo",
+            "description": "todo Details",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/Create" }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": { "200": { "description": "Success" } }
+      }
+    },
+    "/todo/changestatus": {
+      "post": {
+        "tags": ["Todo"],
+        "summary": "Change Todo Status",
+        "description": "",
+        "parameters": [
+          {
+            "name": "Todo",
+            "description": "todo Details",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/Changestatus" }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": { "200": { "description": "Success" } }
       }
     }
   },
@@ -281,50 +282,6 @@
       }
     },
    
-    "Login": {
-      "required": ["email", "password"],
-      "properties": {
-        "email": {
-          "type": "string"
-        },
-        "password": {
-          "type": "string"
-        }
-      }
-    },
-    "Login": {
-      "required": ["email", "password"],
-      "properties": {
-        "email": {
-          "type": "string"
-        },
-        "password": {
-          "type": "string"
-        }
-      }
-    },
-    "Login": {
-      "required": ["email", "password"],
-      "properties": {
-        "email": {
-          "type": "string"
-        },
-        "password": {
-          "type": "string"
-        }
-      }
-    },
-    "Login": {
-      "required": ["email", "password"],
-      "properties": {
-        "email": {
-          "type": "string"
-        },
-        "password": {
-          "type": "string"
-        }
-      }
-    },
     "Create": {
       "required": ["title", "description"],
       "properties": {
