@@ -20,7 +20,7 @@ const {
 } = require("../services");
 
 todoRouter.route(TODO.CREATE).post(verifyToken, createTodoHandler);
-todoRouter.route(TODO.CHANGE).post(verifyToken, changeStatusTodoHandler);
+todoRouter.route(TODO.CHANGE).patch(verifyToken, changeStatusTodoHandler);
 todoRouter.route(TODO.ALL).get(verifyToken, getAllTodoHandler);
 
 todoRouter

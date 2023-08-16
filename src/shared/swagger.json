@@ -212,7 +212,7 @@
       }
     },
     "/todo/changestatus": {
-      "post": {
+      "patch": {
         "tags": ["Todo"],
         "summary": "Change Todo Status",
         "description": "",
