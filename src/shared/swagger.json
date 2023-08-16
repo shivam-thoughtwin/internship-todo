@@ -195,7 +195,7 @@
     },
     "/todo/create": {
       "post": {
-        "tags": ["Auth"],
+        "tags": ["Todo"],
         "summary": "Create new Todo",
         "description": "",
         "parameters": [
