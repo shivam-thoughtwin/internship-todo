@@ -28,17 +28,17 @@ process.on("uncaughtException", (err) => {
 const app = express();
 
 // Swagger route
-// app.use(
-//   "/api-docs",
-//   (req, _, next) => {
-//     swaggerDocument.host = req.get("host");
-//     swaggerDocument.basePath = baseUrl;
-//     req.swaggerDoc = swaggerDocument;
-//     next();
-//   },
-//   swaggerUi.serve,
-//   swaggerUi.setup()
-// );
+app.use(
+  "/api-docs",
+  (req, _, next) => {
+    swaggerDocument.host = req.get("host");
+    swaggerDocument.basePath = baseUrl;
+    req.swaggerDoc = swaggerDocument;
+    next();
+  },
+  swaggerUi.serve,
+  swaggerUi.setup()
+);
 
 // Implement CORS
 app.use(cors({ origin: corsUrl }));

@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": { "version": "v2", "title": "NodeJS Api's" },
-  "host": "localhost:5000",
+  "host": "localhost:3232",
   "basePath": "/api/v1",
   "tags": [
     {
@@ -13,8 +13,8 @@
       "description": "API for auth"
     },
     {
-      "name": "Users",
-      "description": "API for users"
+      "name": "Todo",
+      "description": "API for todo"
     }
   ],
   "schemes": ["http", "https"],
@@ -85,16 +85,7 @@
         "responses": { "200": { "description": "Success" } }
       }
     },
-    "/auth/me": {
-      "get": {
-        "tags": ["Auth"],
-        "summary": "Get User Details the account",
-        "description": "",
-        "security": [{ "bearerAuth": [] }],
-        "produces": ["application/json"],
-        "responses": { "200": { "description": "Success" } }
-      }
-    },
+   
     "/auth/forgotPassword": {
       "post": {
         "tags": ["Auth"],
@@ -137,11 +128,11 @@
         "responses": { "200": { "description": "Success" } }
       }
     },
-    "/users": {
+    "/todo": {
       "get": {
-        "tags": ["Users"],
-        "summary": "fetch users",
-        "description": "fetch users",
+        "tags": ["Todo"],
+        "summary": "fetch todo",
+        "description": "fetch todo",
         "produces": ["application/json"],
         "parameters": [
           {
@@ -161,11 +152,11 @@
         "responses": { "200": { "description": "Success" } }
       }
     },
-    "/users/{id}": {
+    "/todo/{id}": {
       "get": {
-        "tags": ["Users"],
-        "summary": "fetch users",
-        "description": "fetch users",
+        "tags": ["Todo"],
+        "summary": "fetch todo",
+        "description": "fetch todo",
         "parameters": [
           {
             "name": "id",
@@ -179,33 +170,26 @@
         "responses": { "200": { "description": "Success" } }
       },
       "put": {
-        "tags": ["Users"],
-        "summary": "update users",
-        "description": "update users",
+        "tags": ["Todo"],
+        "summary": "update todo",
+        "description": "update todo",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "type": "string",
             "required": true
-          },
-          {
-            "name": "photo",
-            "description": "Allow images only image files!",
-            "in": "formData",
-            "required": true,
-            "allowMultiple": false,
-            "type": "file"
           }
+         
         ],
         "security": [{ "bearerAuth": [] }],
         "produces": ["application/json"],
         "responses": { "200": { "description": "Success" } }
       },
       "delete": {
-        "tags": ["Users"],
-        "summary": "delete users",
-        "description": "delete users",
+        "tags": ["Todo"],
+        "summary": "delete todo",
+        "description": "delete todo",
         "parameters": [
           {
             "name": "id",
@@ -217,6 +201,42 @@
         "security": [{ "bearerAuth": [] }],
         "produces": ["application/json"],
         "responses": { "200": { "description": "Success" } }
+      },
+      "/todo/create": {
+        "post": {
+          "tags": ["Auth"],
+          "summary": "Create new Todo",
+          "description": "",
+          "parameters": [
+            {
+              "name": "Todo",
+              "description": "todo Details",
+              "in": "body",
+              "required": true,
+              "schema": { "$ref": "#/definitions/Create" }
+            }
+          ],
+          "produces": ["application/json"],
+          "responses": { "200": { "description": "Success" } }
+        }
+      },
+      "/todo/changestatus": {
+        "post": {
+          "tags": ["Todo"],
+          "summary": "Change Todo Status",
+          "description": "",
+          "parameters": [
+            {
+              "name": "Todo",
+              "description": "todo Details",
+              "in": "body",
+              "required": true,
+              "schema": { "$ref": "#/definitions/Changestatus" }
+            }
+          ],
+          "produces": ["application/json"],
+          "responses": { "200": { "description": "Success" } }
+        }
       }
     }
   },
@@ -271,8 +291,73 @@
         }
       }
     },
-    "UpdateUser": {
-      "properties": {}
+   
+    "Login": {
+      "required": ["email", "password"],
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "Login": {
+      "required": ["email", "password"],
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "Login": {
+      "required": ["email", "password"],
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "Login": {
+      "required": ["email", "password"],
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "Create": {
+      "required": ["title", "description"],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "Changestatus": {
+      "required": ["_id", "status"],
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      }
     }
+
   }
 }

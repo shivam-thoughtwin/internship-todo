@@ -9,7 +9,7 @@ const { logger } = require("../shared");
   @desc   Fetch users
   @param  { page, limit }
   @method GET
-  @route  /api/v1/users/
+  @route  /api/v1/todo/
   @access Private
   @role   Admin
 */
@@ -45,7 +45,7 @@ exports.getAllTodoHandler = asyncHandler(async (req, res, _) => {
   @desc   Fetch user by id
   @param  { id }
   @method GET
-  @route  /api/v1/users/:id
+  @route  /api/v1/todo/:id
   @access Private
   @role   Admin
 */
@@ -67,12 +67,11 @@ exports.getTodoByIdHandler = asyncHandler(async (req, res, _) => {
   });
 });
 /**
-  @desc   Update user by id
-  @param  { id }
-  @method PUT
-  @route  /api/v1/users/:id
-  @access Private
-  @role   Admin
+  @desc   Signup user
+  @param  { title, description }
+  @method POST
+  @route  /api/v1/todo/create
+  @access Public
 */
 exports.createTodoHandler = asyncHandler(async (req, res, _) => {
   console.log(req.user.id);
@@ -136,7 +135,7 @@ exports.updateTodoHandler = asyncHandler(async (req, res, _) => {
   @desc   Update user by id
   @param  { id }
   @method PUT
-  @route  /api/v1/users/:id
+  @route  /api/v1/todo/:id
   @access Private
   @role   Admin
 */
@@ -167,7 +166,7 @@ exports.changeStatusTodoHandler = asyncHandler(async (req, res, _) => {
   @desc   Delete user by id
   @param  { id }
   @method DELETE
-  @route  /api/v1/users/:id
+  @route  /api/v1/todo/:id
   @access Private
   @role   Admin
 */
